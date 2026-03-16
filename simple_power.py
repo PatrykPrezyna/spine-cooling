@@ -12,7 +12,7 @@ H_CONV       = 5.0  # W/(m^2*K)   natural convection (~5 still air, ~10-15 light
 
 # Temperatures [°C] TO MODIFY WHEN PARAM CHANGE
 T_INITIAL    = 37.0
-T_ENV        = 20.0
+T_ENV        = 37.0
 T_TARGET     = 35.0
 
 Q_COOLING    = 5.0 # Cooling power
@@ -49,11 +49,12 @@ sample_times_s = [T_TOTAL_S]  # end (120 min)
 sample_idx = [int(ts / DT_S) for ts in sample_times_s]
 
 # Data
-col_labels = ["Time", "T (°C)", "Q_met (W)", "Q_rad (W)", "Q_conv (W)", "Q_cool (W)", "Q_net (W)"]
+col_labels = ["Time", "T (°C)", "Q_met (W)", "Q_rad (W)", "Q_conv (W)", "Q_cool (W)", "Q_net (W)", "T_ENV (°C)"]
 table_data = []
 for idx in sample_idx:
    qnet = Qnet_arr[idx]
    table_data.append([
+
        f"{t_arr[idx]/60:.0f} min",
        f"{T_arr[idx]:.2f}",
        f"{Q_METABOLIC:+.3f}",
@@ -61,6 +62,7 @@ for idx in sample_idx:
        f"{-Qconv_arr[idx]:+.3f}",
        f"{-Q_COOLING:+.3f}",
        f"{qnet:+.3f}",
+       f"{T_ENV:.1f}",
    ])
 
 # Plot
