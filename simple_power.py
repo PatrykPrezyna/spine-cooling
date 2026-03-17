@@ -12,7 +12,7 @@ H_CONV       = 5.0  # W/(m^2*K)   natural convection (~5 still air, ~10-15 light
 
 # Temperatures [°C] TO MODIFY WHEN PARAM CHANGE
 T_INITIAL    = 37.0
-T_ENV        = 37.0
+T_ENV        = 20.0
 T_TARGET     = 35.0
 
 Q_COOLING    = 5.0 # Cooling power
@@ -67,7 +67,7 @@ for idx in sample_idx:
 
 # Plot
 fig, (ax, ax_t) = plt.subplots(2, 1, figsize=(10, 8), gridspec_kw={"height_ratios": [2, 1]})
-fig.suptitle("Simple Tissue Cooling  1 kg  Power Analysis", fontsize=13)
+fig.suptitle("Simple Tissue Cooling 1 kg Power Analysis", fontsize=13)
 
 # Top: Temperature vs Time
 ax.plot(t_min, T_arr, color="tab:red", linewidth=2, label="Tissue temp") #Actual plot
